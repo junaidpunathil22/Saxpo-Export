@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --primary-gold: #c6a87c;
+  --secondary-gold: #e5dada;
+  --dark-bg: #0a0a0a;
+  --panel-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-main: #ffffff;
+  --text-muted: #a0a0a0;
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--dark-bg);
+  background-image: radial-gradient(circle at top right, #1a1a1a 0%, #000000 100%);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-padding {
+  padding: 8rem 0;
+}
+
+/* Header */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 2rem 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-gold);
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--primary-gold);
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--primary-gold);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(198, 168, 124, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  top: -100px;
+  right: -100px;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.hero-content {
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--primary-gold);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 4rem;
+}
+
+/* Feature Cards */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.card {
+  background: var(--panel-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-gold);
+  background: rgba(198, 168, 124, 0.1);
+}
+
+.card-img-wrap {
+  width: 100%;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.card:hover .card-img {
+  transform: scale(1.05);
+}
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-gold);
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* About Page Styles */
+.about-hero {
+  padding-top: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  min-height: 80vh;
+}
+
+.profile-img-container {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  flex-shrink: 0;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  filter: grayscale(20%);
+  transition: var(--transition);
+}
+
+.profile-img-container::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--primary-gold);
+  border-radius: 20px;
+  z-index: -1;
+  transition: var(--transition);
+}
+
+.profile-img-container:hover .profile-img {
+  filter: grayscale(0%);
+}
+
+.profile-img-container:hover::before {
+  top: 15px;
+  left: 15px;
+}
+
+.about-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.designation {
+  color: var(--primary-gold);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.bio-text {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-btn {
+  padding: 10px 25px;
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  background: var(--panel-bg);
+  transition: var(--transition);
+}
+
+.social-btn:hover {
+  background: var(--primary-gold);
+  color: #000;
+  border-color: var(--primary-gold);
+}
+
+/* Product Detail Page */
+.product-detail {
+  padding-top: 150px;
+}
+
+.product-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Footer */
+footer {
+  padding: 4rem 0;
+  border-top: 1px solid var(--glass-border);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 4rem;
+}
+
+@media (max-width: 900px) {
+  .about-hero {
+    flex-direction: column;
+    padding-top: 120px;
+    text-align: center;
+  }
+
+  .profile-img-container {
+    width: 300px;
+    height: 380px;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .nav-links {
+    display: none;
+    /* Simplification for prototype */
+  }
+}
