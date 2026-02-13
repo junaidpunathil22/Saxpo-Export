@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saxpo Import & Export - Premium Dashboard</title>
+    <title>Saxpo International Import & Export - Premium Dashboard</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -15,12 +15,17 @@
             <nav>
                 <div class="logo">SAXPO</div>
                 <div class="nav-links">
-                    <a href="index.html" class="active">Home</a>                    
+                    <a href="index.html" class="active">Home</a>
                     <a href="oudh.html">Oudh</a>
                     <a href="perfume-oils.html">Perfumes</a>
                     <a href="garments.html">Garments</a>
                     <a href="spices-nuts.html">Spices</a>
                     <a href="about.html">About CEO</a>
+                </div>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
                 </div>
             </nav>
         </div>
@@ -30,7 +35,7 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-subtitle">Premium Global Trading</div>
-                <h1 class="hero-title">Saxpo Import & Export<br>Company</h1>
+                <h1 class="hero-title">Saxpo International Import & Export<br>Company</h1>
 
                 <div class="features-grid">
                     <a href="oudh.html" class="card">
@@ -64,6 +69,14 @@
                         <h3>Spices & Nuts</h3>
                         <p>Finest selection of global spices</p>
                     </a>
+
+                    <a href="about.html" class="card">
+                        <div class="card-img-wrap">
+                            <img src="images/profile.jpg" alt="about" class="card-img">
+                        </div>
+                        <h3>About</h3>
+                        <p>Ceo & Contact Me</p>
+                    </a>
                 </div>
 
             </div>
@@ -72,10 +85,26 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Saxpo Import & Export Company. All rights reserved.</p>
+            <p>&copy; 2026 Saxpo International Import & Export Company. All rights reserved.</p>
         </div>
     </footer>
 
 </body>
+
+<script>
+    const navSlide = () => {
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            //Toggle Nav
+            nav.classList.toggle('active');
+            //Burger Animation
+            burger.classList.toggle('toggle');
+        });
+    }
+
+    navSlide();
+</script>
 
 </html>
